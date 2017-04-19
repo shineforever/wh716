@@ -1,0 +1,48 @@
+#!/bin/bash
+#written by guolt
+#利用gunicorn 启动Django！
+ 
+NAME="wh716"        # Name of the application
+# Django project directory
+DJANGODIR=/usr/local/wh716b  
+
+# we will communicte using this unix socket
+#SOCKFILE=/tmp/gunicorn.sock 
+
+IP_PORT=127.0.0.1:8000
+
+USER=webapp # the user to run as
+GROUP=webapp # the group to run as
+
+# how many worker processes should Gunicorn spawn
+NUM_WORKERS=3 # how many worker processes should Gunicorn spawn
+
+# which settings file should Django use
+DJANGO_SETTINGS_MODULE=wh716.settings
+
+# WSGI module name
+DJANGO_WSGI_MODULE=wh716.wsgi 
+ 
+echo "Starting $NAME as `whoami`"
+ 
+# Activate the virtual environment
+cd $DJANGODIR
+#source ../bin/activate
+export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
+export PYTHONPATH=$DJANGODIR:$PYTHONPATH
+ 
+# Create the run directory if it doesn't exist
+RUNDIR=$(dirname $SOCKFILE)
+test -d $RUNDIR || mkdir -p $RUNDIR
+ 
+# Start your Django Unicorn
+# Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
+exec gunicorn ${DJANGO_WSGI_MODULE}:application \
+--name $NAME \
+--workers $NUM_WORKERS \
+--user=$USER --group=$GROUP \
+#--bind=unix:$SOCKFILE \
+--bind=$IP_PORT
+--log-level=debug \
+--log-file=-
+
