@@ -4,15 +4,15 @@
  
 NAME="wh716"        # Name of the application
 # Django project directory
-DJANGODIR=/usr/local/wh716b  
+DJANGODIR=/usr/local/wh716 
 
 # we will communicte using this unix socket
-#SOCKFILE=/tmp/gunicorn.sock 
+SOCKFILE=/tmp/gunicorn.sock 
 
 IP_PORT=127.0.0.1:8000
 
-USER=webapp # the user to run as
-GROUP=webapp # the group to run as
+USER=root # the user to run as
+GROUP=root # the group to run as
 
 # how many worker processes should Gunicorn spawn
 NUM_WORKERS=3 # how many worker processes should Gunicorn spawn
