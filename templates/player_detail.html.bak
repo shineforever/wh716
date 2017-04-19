@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>716报名结果查询</title>
+</head>
+<body>
+    <img width="214" src="{{ MEDIA_URL }}{{ player.image }}"/>
+    <h1>{{ player.name }} </h1>
+</body>
+</html>

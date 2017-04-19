@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="alternate icon" type="image/png" href="{% static 'assets/i/favicon.png' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/amazeui.min.css' %}"/>
+  <style>
+    .header {
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 200%;
+      color: #333;
+      margin-top: 30px;
+    }
+    .header p {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="header">
+  <div class="am-g">
+    <h2>队员报名信息</>
+  </div>
+  <hr />
+</div>
+<div class="am-g">
+  <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+      <img width="100" src="{{ MEDIA_URL }}{{ player.image }}"/>
+      <br>
+      <p>姓名：{{ player.name }}</p>
+      <p>性别： {{ player.get_gender_display}}</p>
+      <p>手机号： {{ player.mobile}}</p>
+      <p>身份证：{{ player.identity_card }}</p>
+      <p>体重：{{ player.weight }} 公斤</p>
+      <p>身高：{{ player.height }} 厘米</p>
+      <p>泳衣尺码：{{ player.get_swim_clothes_size_display }}</p>
+      <p>T恤尺码：{{ player.get_t_short_size_display }}</p>
+      <p>所属俱乐部：{{ player.club }}</p>
+      <br />
+    <hr>
+    <p>© 2017 武汉市泳协</p>
+  </div>
+</div>
+</body>
+</html>
