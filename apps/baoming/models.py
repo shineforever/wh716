@@ -13,7 +13,7 @@ class Club(models.Model):
     俱乐部名称
     """
     name = models.CharField(max_length=20,verbose_name=u'俱乐部名称')
-    leader = models.ForeignKey(UserProfile, verbose_name=u'俱乐部管理员',default='')
+    leader = models.ForeignKey(UserProfile, verbose_name=u'俱乐部管理员',blank=True, null=True,on_delete=models.SET_NULL)
     add_time = models.DateTimeField(default=datetime.now, verbose_name=u'添加时间')
 
     class Meta:
@@ -22,6 +22,7 @@ class Club(models.Model):
 
     def __unicode__(self):
         return self.name
+
 
 
 class Player(models.Model):
@@ -44,9 +45,8 @@ class Player(models.Model):
     ('43','43')
     )
     name = models.CharField(max_length=10,verbose_name=u'姓名')
-    # birday = models.DateField(verbose_name=u'生日', null=True, blank=True)
     gender = models.CharField(choices=(('male', u'男'), ('female', u'女')), default='male', verbose_name=u'性别',max_length=6)
-    mobile = models.CharField(max_length=11,default='',verbose_name=u'手机号码')
+    mobile = models.CharField(max_length=11,verbose_name=u'手机号码')
     identity_card = models.CharField(max_length=18,verbose_name=u'身份证',unique=True)
     weight= models.IntegerField(verbose_name=u'体重(单位:公斤)')
     height = models.IntegerField(verbose_name=u'身高(单位:厘米)')
@@ -62,4 +62,6 @@ class Player(models.Model):
 
     def __unicode__(self):
         return self.name
+
+
 

@@ -24,6 +24,7 @@ class UserProfileAdmin(object):
     list_filter = ['nick_name','gender', 'address','mobile']
 
 
+
 # xadmin.site.register(UserProfile,UserProfileAdmin)
 
 xadmin.site.register(views.BaseAdminView,BaseSetting)
