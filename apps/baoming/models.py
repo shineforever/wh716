@@ -33,7 +33,7 @@ class Player(models.Model):
         ('ml','ML'),
         ('l','L'),
         ('xl','XL'),
-        ('xxl','XLL')
+        ('xxl','XXL')
     )
 
     SHOE_SIZE_CHOICES=(
