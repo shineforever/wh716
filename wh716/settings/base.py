@@ -15,9 +15,13 @@ import os
 import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))).split('/')[:-1]
+BASE_DIR = ('/').join(BASE_DIR)
 sys.path.insert(0,os.path.join(BASE_DIR,'apps'))   #多个app集中放入到apps目录下时需要
 sys.path.insert(0,os.path.join(BASE_DIR,'extra_apps'))  # 添加extra_apps目录到环境变量；
+# print BASE_DIR
+# print os.path.join(BASE_DIR,'../apps')
+# print os.path.join(BASE_DIR,'../extra_apps')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -99,7 +103,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'wh716',    ## 数据库名称
         'USER': 'root',
-        'PASSWORD': '123456',    ## 安装 mysql 数据库时，输入的 root 用户的密码
+        'PASSWORD': '!@#QWE',    ## 安装 mysql 数据库时，输入的 root 用户的密码
         'HOST': '127.0.0.1',
     }
 }
@@ -150,3 +154,6 @@ STATICFILES_DIRS = [
 #文件上传路径
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+
+

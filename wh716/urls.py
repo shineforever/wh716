@@ -19,7 +19,7 @@ from django.conf.urls import url
 from django.contrib import admin
 import xadmin
 from django.views.static import serve
-from wh716.settings import MEDIA_ROOT
+from wh716.settings.production import MEDIA_ROOT
 
 from baoming.views import SearchView
 
