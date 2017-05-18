@@ -15,11 +15,17 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
+import platform
+
 from django.conf.urls import url
 from django.contrib import admin
 import xadmin
 from django.views.static import serve
-from wh716.settings.production import MEDIA_ROOT
+
+if platform.node() == 'guoletaodeMacBook-Pro.local':
+    from wh716.settings.dev import MEDIA_ROOT
+else:
+    from wh716.settings.production import MEDIA_ROOT
 
 from baoming.views import SearchView
 
