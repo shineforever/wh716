@@ -52,7 +52,7 @@ class Player(models.Model):
     height = models.IntegerField(verbose_name=u'身高(单位:厘米)')
     swim_clothes_size = models.CharField(choices=SIZE,verbose_name=u'泳衣尺码',default='xl',max_length=5)
     t_short_size = models.CharField(choices=SIZE,verbose_name=u'T恤尺码',default='xl',max_length=5)
-    shoe_size = models.CharField(choices=SHOE_SIZE_CHOICES,verbose_name=u'拖鞋尺码',default='xl',max_length=2)
+    shoe_size = models.CharField(choices=SHOE_SIZE_CHOICES,verbose_name=u'拖鞋尺码',default='38',max_length=2)
     image = models.ImageField(upload_to="image/%Y/%m", default=u"image/default.png", verbose_name=u'用户图像',max_length=100)
     club = models.ForeignKey(Club,verbose_name=u'俱乐部名称',blank=True, null=True,on_delete=models.SET_NULL)
 
