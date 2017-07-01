@@ -1,38 +1,54 @@
 <!DOCTYPE html>
 <html>
 {% load staticfiles %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <meta content="telephone=no" name="format-detection" />
-    <title>个人信息查询</title>
-    <link href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css" rel="stylesheet">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>2017年渡江报名查询</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="alternate icon" type="image/png" href="{% static 'assets/i/favicon.png' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/amazeui.min.css' %}"/>
+  <style>
+    .header {
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 200%;
+      color: #333;
+      margin-top: 30px;
+    }
+    .header p {
+      font-size: 14px;
+    }
+  </style>
 </head>
-<body ontouchstart>
-    <div class="container js_container">
-        <div class="page">
-            <div class="hd">
-                <h1 class="page_title">2017年渡江报名查询</h1>
-                <p class="page_desc">对查询结果有任何异议，请和相关俱乐部负责人联系！</p>
-            </div>
-        </div>
-    <form method="post" class="am-form" style="margin: 20px;">
-        <div class="weui-cells">
-            <div class="weui-cell">
-             <div class="weui-cell__bd">
-                <input class="weui-input" type="text" placeholder="请输入身份证号码"/>
-             </div>
-            </div>
-        </div>
-
-        <input type="submit" value="开始查询" class="weui-btn weui-btn_primary" style="margin-top: 20px;">
+<body>
+<div class="header">
+  <div class="am-g">
+    <h1>2017年渡江报名查询</h1>
+    <p>对查询结果有任何异议，请和相关俱乐部负责人联系！</p>
+  </div>
+  <hr />
+</div>
+<div class="am-g">
+  <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+    <form method="post" class="am-form">
+      <label >请输入身份证号:</label>
+      <input type="text" name="identity_card" id="" >
+      <br>
+      </label>
+      <br />
+      <div class="am-cf">
+        <input type="submit" value="开始查询" class="am-btn am-btn-primary am-btn-sm am-fl">
+      </div>
         {% csrf_token %}
     </form>
+    <hr>
+    <p>© 2017 武汉市泳协</p>
   </div>
 </div>
-<div class="weui-footer">
-    <p class="weui-footer__text">Copyright &copy; 2008-2016 weui.io</p>
-</div>
 </body>
-
 </html>
