@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <title>个人信息查询</title>
+    <link href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css" rel="stylesheet">
+</head>
+<body ontouchstart>
+    <div class="container js_container">
+        <div class="page">
+            <div class="hd">
+                <h1 class="page_title">2017年渡江报名查询</h1>
+                <p class="page_desc">对查询结果有任何异议，请和相关俱乐部负责人联系！</p>
+            </div>
+        </div>
+    <form method="post" class="am-form" style="margin: 20px;">
+        <div class="weui-cells">
+            <div class="weui-cell">
+             <div class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="请输入身份证号码"/>
+             </div>
+            </div>
+        </div>
+
+        <input type="submit" value="开始查询" class="weui-btn weui-btn_primary" style="margin-top: 20px;">
+        {% csrf_token %}
+    </form>
+  </div>
+</div>
+<div class="weui-footer">
+    <p class="weui-footer__text">Copyright &copy; 2008-2016 weui.io</p>
+</div>
+</body>
+
+</html>
