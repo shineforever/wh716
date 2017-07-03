@@ -18,7 +18,7 @@ GROUP=root # the group to run as
 NUM_WORKERS=3 # how many worker processes should Gunicorn spawn
 
 # which settings file should Django use
-DJANGO_SETTINGS_MODULE=wh716.settings
+DJANGO_SETTINGS_MODULE=wh716.settings.production
 
 # WSGI module name
 DJANGO_WSGI_MODULE=wh716.wsgi 

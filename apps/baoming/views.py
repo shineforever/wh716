@@ -12,7 +12,7 @@ class SearchView(View):
     身份证查询
     """
     def get(self,request):
-        return render(request, 'search.html.old', {})
+        return render(request,'search.html',{})
     def post(self,request):
         identity_card = request.POST.get('identity_card','')
         if Player.objects.filter(identity_card=identity_card):
