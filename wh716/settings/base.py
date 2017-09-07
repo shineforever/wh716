@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'qiniustorage',
     'users',
     'baoming',
     'xadmin',
@@ -85,17 +86,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'wh716.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 
 
 DATABASES = {
@@ -144,16 +134,51 @@ USE_TZ = False   #默认是Ture，时间是utc时间，由于我们要用本地�
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#
+# STATICFILES_DIRS = [
+#     (os.path.join(BASE_DIR, 'static'))
+# ]
+#
+# #文件上传路径
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
-STATICFILES_DIRS = [
-    (os.path.join(BASE_DIR, 'static'))
-]
+#七牛云相关参数配置：
 
-#文件上传路径
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+#七牛给开发者分配的 AccessKey
+QINIU_ACCESS_KEY = "-EtRvtpOvoRceczGnHsqvcd3W6c5hLhjs0uIP5T5"
+#七牛给开发者分配的 Secret
+QINIU_SECRET_KEY = "Pqevq7miZZxW6yWDs0yrHKAm3Ef8-NCKt9qd1VqO"
+#用来存放文件的七牛空间(bucket)的名字
+QINIU_BUCKET_NAME = "test"
+#对象存储对应的域名
+QINIU_BUCKET_DOMAIN = "static.wh716.info"
+#是否通过 HTTPS 来访问七牛云存储上的资源(若为'是', 可填True, true 或 1；若为'否', 可填False, false 或 0) 默认为否
+QINIU_SECURE_URL = False
+
+# Absolute filesystem path to the directory that will hold user-uploaded files.
+# Example: "/var/www/example.com/media/"
+MEDIA_ROOT = '/media/'
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash.
+# Examples: "http://example.com/media/", "http://media.example.com/"
+MEDIA_URL = 'http://img.wh716.info/media/'
+
+# Absolute path to the directory static files should be collected to.
+# Don't put anything in this directory yourself; store your static files
+# in apps' "static/" subdirectories and in STATICFILES_DIRS.
+# Example: "/var/www/example.com/static/"
+STATIC_ROOT = '/static/'
+
+# URL prefix for static files.
+# Example: "http://example.com/static/", "http://static.example.com/"
+STATIC_URL = 'http://static.wh716.info/static/'
 
 
-
+#存放用户上传的资源，如图片；
+DEFAULT_FILE_STORAGE = 'qiniustorage.backends.QiniuMediaStorage'
+#存放js，css等静态资源
+STATICFILES_STORAGE = 'qiniustorage.backends.QiniuStaticStorage'
