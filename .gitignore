@@ -90,4 +90,4 @@ ENV/
 .ropeproject
 .qiniu_pythonsdk_hostscache.json
 
-settings/dev.py
+wh716/settings/dev.py
