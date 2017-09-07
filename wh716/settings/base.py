@@ -148,9 +148,9 @@ USE_TZ = False   #默认是Ture，时间是utc时间，由于我们要用本地�
 #七牛云相关参数配置：
 
 #七牛给开发者分配的 AccessKey
-QINIU_ACCESS_KEY = "-EtRvtpOvoRceczGnHsqvcd3W6c5hLhjs0uIP5T5"
+QINIU_ACCESS_KEY = ""
 #七牛给开发者分配的 Secret
-QINIU_SECRET_KEY = "Pqevq7miZZxW6yWDs0yrHKAm3Ef8-NCKt9qd1VqO"
+QINIU_SECRET_KEY = ""
 #用来存放文件的七牛空间(bucket)的名字
 QINIU_BUCKET_NAME = "test"
 #对象存储对应的域名
